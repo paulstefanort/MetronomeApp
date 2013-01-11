@@ -16,12 +16,18 @@
 @property CGFloat beatDelay;
 @property (strong) NSString *path;
 @property (strong) NSString *filePath;
-@property SystemSoundID soundId;
+/*  Life would be easier if we could have an array of SystemSoundIDs.
+    The only alternative is to have an NSMutableArray property storing 
+    objects with a property of SystemSoundID ... too complicated.
+*/
+@property SystemSoundID sound1;
+@property SystemSoundID sound2;
+@property int alternate;
 @end
 
 @implementation MetronomeViewController
 
-@synthesize beating, bpm, beatDelay, path, filePath, soundId;
+@synthesize beating, bpm, beatDelay, path, filePath, sound1, sound2;
 @synthesize bpmLabel, toggleButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,9 +44,13 @@
     [super viewDidAppear:animated];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        path = [[NSBundle mainBundle] pathForResource:@"MetronomeSound" ofType:@"mp3"];
+        path = [[NSBundle mainBundle] pathForResource:@"MetronomeSound1" ofType:@"mp3"];
         filePath = [NSURL fileURLWithPath:path];
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundId);
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &sound1);
+        path = [[NSBundle mainBundle] pathForResource:@"MetronomeSound2" ofType:@"mp3"];
+        filePath = [NSURL fileURLWithPath:path];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &sound2);
+        self.alternate = 2;
     });
 }
 
@@ -65,7 +75,16 @@
 
 - (void) beat {
     if (beating) {
-        AudioServicesPlaySystemSound(soundId);
+        if (self.alternate == 1)
+        {
+            AudioServicesPlaySystemSound(sound1);
+            self.alternate = 2;
+        }
+        else
+        {
+            AudioServicesPlaySystemSound(sound2);
+            self.alternate = 1;
+        }
         [self performSelector:@selector(beat) withObject:nil afterDelay:(beatDelay)];
     }
 }
