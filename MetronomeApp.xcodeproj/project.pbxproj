@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08148BC8169FEF8F00A16518 /* MetronomeSound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08148BC6169FEF8F00A16518 /* MetronomeSound1.mp3 */; };
+		08148BC9169FEF8F00A16518 /* MetronomeSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08148BC7169FEF8F00A16518 /* MetronomeSound2.mp3 */; };
 		D478F0AF169FB8050013910D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D478F0AE169FB8050013910D /* UIKit.framework */; };
 		D478F0B1169FB8050013910D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D478F0B0169FB8050013910D /* Foundation.framework */; };
 		D478F0B3169FB8050013910D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D478F0B2169FB8050013910D /* CoreGraphics.framework */; };
@@ -19,10 +21,11 @@
 		D478F0D2169FB9100013910D /* MetronomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D478F0D1169FB9100013910D /* MetronomeViewController.m */; };
 		D478F0D4169FB9350013910D /* MetronomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D478F0D3169FB9350013910D /* MetronomeView.xib */; };
 		D478F0D6169FBCF70013910D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D478F0D5169FBCF70013910D /* AudioToolbox.framework */; };
-		D478F0D8169FC0B00013910D /* MetronomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D478F0D7169FC0B00013910D /* MetronomeSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08148BC6169FEF8F00A16518 /* MetronomeSound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MetronomeSound1.mp3; path = Assets/MetronomeSound1.mp3; sourceTree = "<group>"; };
+		08148BC7169FEF8F00A16518 /* MetronomeSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MetronomeSound2.mp3; path = Assets/MetronomeSound2.mp3; sourceTree = "<group>"; };
 		D478F0AA169FB8050013910D /* MetronomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetronomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D478F0AE169FB8050013910D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D478F0B0169FB8050013910D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,7 +43,6 @@
 		D478F0D1169FB9100013910D /* MetronomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MetronomeViewController.m; path = Controllers/MetronomeViewController.m; sourceTree = "<group>"; };
 		D478F0D3169FB9350013910D /* MetronomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MetronomeView.xib; path = Views/MetronomeView.xib; sourceTree = "<group>"; };
 		D478F0D5169FBCF70013910D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D478F0D7169FC0B00013910D /* MetronomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MetronomeSound.mp3; path = Assets/MetronomeSound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +120,8 @@
 		D478F0CB169FB89E0013910D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				D478F0D7169FC0B00013910D /* MetronomeSound.mp3 */,
+				08148BC6169FEF8F00A16518 /* MetronomeSound1.mp3 */,
+				08148BC7169FEF8F00A16518 /* MetronomeSound2.mp3 */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -210,7 +213,8 @@
 				D478F0C3169FB8050013910D /* Default@2x.png in Resources */,
 				D478F0C5169FB8050013910D /* Default-568h@2x.png in Resources */,
 				D478F0D4169FB9350013910D /* MetronomeView.xib in Resources */,
-				D478F0D8169FC0B00013910D /* MetronomeSound.mp3 in Resources */,
+				08148BC8169FEF8F00A16518 /* MetronomeSound1.mp3 in Resources */,
+				08148BC9169FEF8F00A16518 /* MetronomeSound2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +336,7 @@
 				D478F0CA169FB8050013910D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
