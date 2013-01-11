@@ -16,10 +16,6 @@
 @property CGFloat beatDelay;
 @property (strong) NSString *path;
 @property (strong) NSString *filePath;
-/*  Life would be easier if we could have an array of SystemSoundIDs.
-    The only alternative is to have an NSMutableArray property storing 
-    objects with a property of SystemSoundID ... too complicated.
-*/
 @property SystemSoundID sound1;
 @property SystemSoundID sound2;
 @property int alternate;
@@ -75,13 +71,10 @@
 
 - (void) beat {
     if (beating) {
-        if (self.alternate == 1)
-        {
+        if (self.alternate == 1) {
             AudioServicesPlaySystemSound(sound1);
             self.alternate = 2;
-        }
-        else
-        {
+        } else {
             AudioServicesPlaySystemSound(sound2);
             self.alternate = 1;
         }
