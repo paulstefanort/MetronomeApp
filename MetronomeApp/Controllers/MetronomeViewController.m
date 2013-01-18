@@ -24,7 +24,7 @@
 @implementation MetronomeViewController
 
 @synthesize beating, bpm, beatDelay, path, filePath, sound1, sound2;
-@synthesize bpmLabel, toggleButton;
+@synthesize bpmLabel, toggleButton, slider;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +34,14 @@
         beatDelay = 60.0 / bpm;
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0.2 green:0.07 blue:0.008 alpha:1.0]];
+    [slider setThumbTintColor:[UIColor colorWithRed:0.16 green:0.07 blue:0.008 alpha:1.0]];
+    [slider setBackgroundColor:[UIColor colorWithRed:0.16 green:0.07 blue:0.008 alpha:1.0]];
+    [toggleButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -50,6 +58,18 @@
     });
 }
 
+- (void) flashButton:(UIButton *)button {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [button setBackgroundColor:[UIColor colorWithRed:0.16 green:0.07 blue:0.008 alpha:0.2]];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [button setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
+    [UIView commitAnimations];
+}
+
 - (IBAction)sliderChanged:(UISlider *)sender {
     NSNumber *bpmNumber = [[NSNumber alloc] initWithFloat:sender.value];
     bpm = [bpmNumber intValue];
@@ -58,6 +78,7 @@
 }
 
 - (IBAction)toggleButtonPressed:(id)sender {
+    [self performSelector:@selector(flashButton:) withObject:sender];
     if (beating) {
         beating = false;
         [toggleButton setTitle:@"Start" forState:UIControlStateNormal];

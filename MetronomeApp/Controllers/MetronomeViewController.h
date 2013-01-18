@@ -11,5 +11,6 @@
 @interface MetronomeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *bpmLabel;
 @property (strong, nonatomic) IBOutlet UIButton *toggleButton;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
 
 @end
