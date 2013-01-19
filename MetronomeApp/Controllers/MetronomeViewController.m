@@ -92,6 +92,9 @@
 
 - (void) beat {
     if (beating) {
+        AudioServicesPlaySystemSound(sound1);
+        /*
+         TODO: Implement alternate beat options.
         if (self.alternate == 1) {
             AudioServicesPlaySystemSound(sound1);
             self.alternate = 2;
@@ -99,6 +102,7 @@
             AudioServicesPlaySystemSound(sound2);
             self.alternate = 1;
         }
+         */
         [self performSelector:@selector(beat) withObject:nil afterDelay:(beatDelay)];
     }
 }
