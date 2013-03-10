@@ -42,6 +42,18 @@
     [slider setThumbTintColor:[UIColor colorWithRed:0.16 green:0.07 blue:0.008 alpha:1.0]];
     [slider setBackgroundColor:[UIColor colorWithRed:0.16 green:0.07 blue:0.008 alpha:1.0]];
     [toggleButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
+    
+    // TODO: Use AudioUnit
+    AudioComponentDescription defaultOutputDescription;
+    defaultOutputDescription.componentType = kAudioUnitType_Output;
+    defaultOutputDescription.componentSubType = kAudioUnitSubType_RemoteIO;
+    defaultOutputDescription.componentManufacturer = kAudioUnitManufacturer_Apple;
+    defaultOutputDescription.componentFlags = 0;
+    defaultOutputDescription.componentFlagsMask = 0;
+    
+    // TODO: set AudioComponent
+    // TOOD: set AURenderCallback
+    // TODO: set AudioStreamBasicDescription
 }
 
 - (void) viewDidAppear:(BOOL)animated {
