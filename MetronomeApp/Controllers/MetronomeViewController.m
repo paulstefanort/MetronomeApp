@@ -52,6 +52,9 @@
     defaultOutputDescription.componentFlagsMask = 0;
     
     // TODO: set AudioComponent
+    AudioComponent defaultOutput = AudioComponentFindNext(NULL, &defaultOutputDescription);
+    NSAssert(defaultOutput, @"Can't find default output.");
+    
     // TOOD: set AURenderCallback
     // TODO: set AudioStreamBasicDescription
 }
