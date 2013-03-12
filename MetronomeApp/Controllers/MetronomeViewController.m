@@ -55,6 +55,11 @@
     AudioComponent defaultOutput = AudioComponentFindNext(NULL, &defaultOutputDescription);
     NSAssert(defaultOutput, @"Can't find default output.");
     
+    AudioComponentInstance toneUnit;
+    
+    OSErr err = AudioComponentInstanceNew(defaultOutput, &toneUnit);
+    NSAssert1(toneUnit, @"Error creating unit: %1d", err);
+    
     // TOOD: set AURenderCallback
     // TODO: set AudioStreamBasicDescription
 }
