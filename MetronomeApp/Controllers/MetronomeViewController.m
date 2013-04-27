@@ -60,7 +60,7 @@
     OSErr err = AudioComponentInstanceNew(defaultOutput, &toneUnit);
     NSAssert1(toneUnit, @"Error creating unit: %1d", err);
     
-    AURenderCallbackStruct input; // TODO: connect with inputProc and inputProcRefCon
+    // AURenderCallbackStruct input; // TODO: connect with inputProc and inputProcRefCon
     // TOOD: set AURenderCallback
     // TODO: set AudioStreamBasicDescription
 }
